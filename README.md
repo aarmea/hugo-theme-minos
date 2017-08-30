@@ -22,6 +22,7 @@ Minos is a Hugo theme ported from Hexo theme [Minos](https://github.com/ppoffice
 * Google Analytics
 * [KaTeX](https://github.com/Khan/KaTeX)
 * Syntax highlighting using [highlight.js](https://github.com/isagalaev/highlight.js)
+* Automatically playing and pausing videos as they become (in)visible while scrolling
 
 ## Installation
 
@@ -79,6 +80,35 @@ For other configuration variables, visit [Hugo documentation](https://gohugo.io/
 featuredImage = "img/foobar.jpg"
 +++
 ```
+
+## Usage
+
+### Automatically playing and pausing videos with scrolling
+
+VP9 (and H.264 to a lesser extent) are great at keeping file sizes down, but
+with the tradeoff of expensive CPU-based decoding if your GPU does not support
+it. This feature lets you use these formats in place of GIFs for short, silent,
+and repeating videos to save on bandwidth without paying the CPU cost when the
+video is not visible.
+
+To use it, place your VP9 and fallback videos somewhere accessible and add it to
+your article using the `<video>` tag with the `playpause-with-visibility` class:
+
+```
+<video autoplay muted loop class="playpause-with-visibility">
+  <source src="/path/to/your/video.webm" type="video/webm">
+  <source src="/path/to/your/video.mp4" type="video/mp4">
+</video>
+```
+
+`autoplay` is needed to have behavior that is as close as possible with
+JavaScript disabled.
+
+The script interprets `loop` to mean that the video is GIF-like. If `loop` is
+specified, the script will also mute the video and disable controls.
+
+Please be a good Net citizen by refraining from autoplaying videos with sound,
+regardless of whether you use this feature.
 
 ## Contributing
 
