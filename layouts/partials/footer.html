@@ -26,5 +26,44 @@
                 header.classList.add('mobile-on');
             }
         });
+
+        // Autoplay videos only once they're scrolled into view
+        // Adapted from these answers: https://stackoverflow.com/questions/15395920/play-html5-video-when-scrolled-to
+        (function() {
+            var tolerance = 40; // pixels
+
+            function playPauseVideos() {
+                var elementsToAutoplay = document.getElementsByClassName('playpause-with-visibility');
+                var scrollTop = window.pageYOffset + tolerance;
+                var scrollBottom = window.pageYOffset + window.innerHeight - tolerance;
+
+                for (var i = 0; i < elementsToAutoplay.length; ++i) {
+                    if (elementsToAutoplay[i].tagName !== 'VIDEO')
+                        continue;
+
+                    var video = elementsToAutoplay[i];
+
+                    // If the video loops, act like it's a GIF:
+                    if (video.loop) {
+                        video.controls = false;
+                        video.muted = true;
+                    }
+
+                    video.autoplay = false;
+
+                    var videoTop = video.offsetTop;
+                    var videoBottom = video.offsetTop + video.offsetHeight;
+                    if (scrollTop < videoBottom && scrollBottom > videoTop) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                }
+            }
+
+            window.addEventListener('load', playPauseVideos);
+            window.addEventListener('scroll', playPauseVideos);
+            window.addEventListener('resize', playPauseVideos);
+        })();
     </script>
 </footer>
