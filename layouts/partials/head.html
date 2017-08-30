@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ .Title }}{{ if ne .Title .Site.Title }} // {{ .Site.Title }}{{ end }}</title>
+    <title>{{ .Title }}{{ if ne .Title .Site.Title }} | {{ .Site.Title }}{{ end }}</title>
 
     {{ partial "meta.html" . }}
     {{ partial "og.html" . }}
@@ -15,6 +15,6 @@
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/style.css">
 
     <link href="http://gmpg.org/xfn/11" rel="profile">
-    
+
     {{ .Hugo.Generator }}
 </head>
