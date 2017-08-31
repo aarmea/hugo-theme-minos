@@ -3,7 +3,7 @@
 <div id="container">
     {{ partial "header.html" . }}
     <section id="main" class="outer">
-        {{ range .Paginator.Pages }}
+        {{ range (.Paginate (where .Data.Pages "Type" "post")).Pages }}
         <article class="article article-type-post" itemscope itemprop="blogPost">
             <div class="article-inner">
                 <!--<%- partial('post/gallery') %>-->
