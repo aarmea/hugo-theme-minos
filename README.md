@@ -80,6 +80,17 @@ featuredImage = "img/foobar.jpg"
 +++
 ```
 
+### Whether a page is a blog post
+```
++++
+blogpost = true
++++
+```
+
+If it is not set, the generated page will not have a date or navigation to the
+next or previous post. If your site overrides the default archetypes, it is
+recommended to also add this line to your archetypes for blog-like sections.
+
 ## Contributing
 
 1. Fork it!
