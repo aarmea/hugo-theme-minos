@@ -675,19 +675,20 @@ a.article-title:hover,
 .article-toc {
   display: none;
   position: fixed;
-  left: 50%;
+  right: 50%;
   top: 110px;
   font-size: 0.9em;
   width: 260px;
-  margin-left: 400px;
-  padding-left: 20px;
+  margin-right: 400px;
+  padding-right: 20px;
   overflow-y: auto;
   line-height: 1.4em;
   max-height: 85%;
 }
 .article-toc h3 {
   font-weight: bold;
-  margin-left: 20px;
+  font-size: 14pt;
+  margin: 0 0 14px 20px;
 }
 .article-toc li {
   list-style: none;
