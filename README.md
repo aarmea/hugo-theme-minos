@@ -113,14 +113,6 @@ katex = true
 +++
 ```
 
-### Suppress date in an article
-Hide the date from an article, e.g. because it's just an index:
-```
-+++
-omitDate = true
-+++
-```
-
 ## Usage
 
 ### Automatically playing and pausing videos with scrolling
@@ -149,6 +141,17 @@ specified, the script will also mute the video and disable controls.
 
 Please be a good Net citizen by refraining from autoplaying videos with sound,
 regardless of whether you use this feature.
+
+### Whether a page is a blog post
+```
++++
+blogpost = true
++++
+```
+
+If it is not set, the generated page will not have a date or navigation to the
+next or previous post. If your site overrides the default archetypes, it is
+recommended to also add this line to your archetypes for blog-like sections.
 
 ## Contributing
 
