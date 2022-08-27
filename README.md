@@ -127,14 +127,14 @@ To use it, place your VP9 and fallback videos somewhere accessible and add it to
 your article using the `<video>` tag with the `playpause-with-visibility` class:
 
 ```
-<video autoplay muted loop class="playpause-with-visibility">
+<video autoplay playsinline muted loop class="playpause-with-visibility">
   <source src="/path/to/your/video.webm" type="video/webm">
   <source src="/path/to/your/video.mp4" type="video/mp4">
 </video>
 ```
 
 `autoplay` is needed to have behavior that is as close as possible with
-JavaScript disabled.
+JavaScript disabled, and `playsinline` is needed to [enable inline playback on mobile Safari](https://developer.apple.com/documentation/webkit/delivering_video_content_for_safari#3030250).
 
 The script interprets `loop` to mean that the video is GIF-like. If `loop` is
 specified, the script will also mute the video and disable controls.
